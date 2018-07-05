@@ -1,0 +1,38 @@
+Nume : George Caloian
+Grupa : 332CC
+
+
+Tema 2 Algoritmi Paraleli si Distribuiti
+-Prelucrare paralela de evenimente-
+
+Detalii de implementare:
+
+Clasa Producer:
+	in cadrul acesteia se efectueaza citirea din
+	fisier (fiecare generator de eveniment avand
+	fisierul sau).
+	se segmenteaza fiecare linie in functie de virgule
+	se identifica cele 3 campuri 
+	interval_timp,eveniment,N
+	se introduce in coada evenimentul de data aceasta
+	avand doar campurile pentru eveniment(tip operatie)
+	si N(numarul pentru care se aplica operatia)
+	se scot din coada evenimente atribuindu-le cate unui
+	worker in functie de operatia ce trebuie efectuala
+
+Clasele Consumer(PR/FI/FA/SQ):
+	reprezinta workerii ce sunt capabili sa efectueze
+	fiecare cate un tip de operatie din cele 4.
+	fiecare worker preia un eveniment 
+	realizeaza operatia respectiva
+	depune rezultatul in vectoruld e rezultate corespunzator
+	in ordine cronologica.(sortarea acestora se va face
+	ulterior.
+
+Clasa Main:
+	porneste threadurile corespunzatoare generetorilor de evenimente
+	dupa distribuire, efectuare operatii,stocare 
+	se vor sorta vectorii cu rezultate si se vor scrie separat
+	in fisiere corespunzatoare tipului de operatie.
+
+	
